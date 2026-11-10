@@ -1,0 +1,744 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ganesh M - MCA Graduate and Developer">
+<title>Ganesh M | Developer Portfolio</title>
+
+<style>
+:root {
+  --bg: #0b1020;
+  --panel: #121a2d;
+  --text: #eef2ff;
+  --muted: #a8b2c8;
+  --line: #26324b;
+  --accent: #75e0c1;
+  --accent2: #8ba7ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(
+    circle at 80% 0%,
+    #1b2b47 0,
+    transparent 32%
+  ), var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, Arial, sans-serif;
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wrap {
+  width: min(1100px, 90%);
+  margin: auto;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+
+.brand span {
+  color: var(--accent);
+}
+
+.navlinks {
+  display: flex;
+  gap: 24px;
+  color: var(--muted);
+  font-size: .92rem;
+}
+
+.navlinks a:hover,
+.textlink:hover {
+  color: var(--accent);
+}
+
+.hero {
+  padding: 100px 0 84px;
+  display: grid;
+  grid-template-columns: 1.35fr .65fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  font-size: .76rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  line-height: 1.03;
+  letter-spacing: -.055em;
+  margin: 18px 0;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.lead {
+  color: var(--muted);
+  font-size: 1.12rem;
+  max-width: 650px;
+}
+
+.actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 9px;
+  font-weight: 700;
+  border: 1px solid var(--line);
+}
+
+.primary {
+  background: var(--accent);
+  color: #07131a;
+  border-color: var(--accent);
+}
+
+.secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.hero-card {
+  background: linear-gradient(145deg,#18243b,#101827);
+  border: 1px solid var(--line);
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 25px 70px #0005;
+}
+
+.monogram {
+  width: 74px;
+  height: 74px;
+  border-radius: 20px;
+  background: linear-gradient(135deg,var(--accent),var(--accent2));
+  color: #08131c;
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
+.hero-card h3 {
+  margin: 20px 0 5px;
+}
+
+.hero-card p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.quick {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.quick div {
+  background: #0c1425;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.quick strong {
+  display: block;
+  font-size: 1.15rem;
+}
+
+.quick small {
+  color: var(--muted);
+}
+
+section {
+  padding: 65px 0;
+  border-top: 1px solid var(--line);
+}
+
+.section-head {
+  margin-bottom: 30px;
+}
+
+.section-head h2 {
+  font-size: 2rem;
+  letter-spacing: -.03em;
+  margin: 0;
+}
+
+.section-head p {
+  color: var(--muted);
+  margin: 8px 0 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 35px;
+}
+
+.about-copy {
+  color: var(--muted);
+  font-size: 1.03rem;
+}
+
+.facts {
+  display: grid;
+  gap: 12px;
+}
+
+.fact {
+  padding: 16px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.fact span {
+  display: block;
+  color: var(--muted);
+  font-size: .83rem;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+}
+
+.chip {
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: #142239;
+  border: 1px solid #2a3a56;
+  color: #dce7ff;
+  font-size: .92rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 16px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  padding: 22px;
+  transition: transform .2s,border-color .2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #648caa;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tag {
+  color: var(--accent);
+  font-size: .76rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-weight: 700;
+}
+
+.card h3 {
+  margin: 10px 0 7px;
+}
+
+.card p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.tech {
+  margin-top: 16px;
+  color: #cbd5e1;
+  font-size: .85rem;
+}
+
+.timeline {
+  display: grid;
+  gap: 15px;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 24px;
+  padding: 20px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+}
+
+.date {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.item p {
+  margin: 5px 0 0;
+  color: var(--muted);
+}
+
+.contact {
+  background: linear-gradient(135deg,#14243a,#101827);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 32px;
+}
+
+.contact p {
+  color: var(--muted);
+  max-width: 650px;
+}
+
+.contact-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.textlink {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+footer {
+  padding: 28px 0;
+  color: var(--muted);
+  font-size: .88rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+@media(max-width:760px) {
+  .navlinks {
+    gap: 12px;
+    font-size: .8rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 70px 0 55px;
+  }
+
+  .about-grid,
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .item {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .nav {
+    align-items: flex-start;
+  }
+
+  .navlinks {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="wrap">
+<nav class="nav">
+  <a class="brand" href="#home">GANESH<span>.</span></a>
+
+  <div class="navlinks">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+</header>
+
+<main>
+
+<div class="wrap hero" id="home">
+
+<div>
+  <div class="eyebrow">
+    MCA Graduate · Web Development · Automation
+  </div>
+
+  <h1>
+    Hi, I'm <em>Ganesh M.</em><br>
+    I build useful<br>
+    digital experiences.
+  </h1>
+
+  <p class="lead">
+    An MCA graduate and developer interested in building
+    responsive web applications, full-stack solutions and
+    practical automation tools. I enjoy turning ideas into
+    clean, functional products.
+  </p>
+
+  <div class="actions">
+    <a class="btn primary" href="#projects">Explore my work</a>
+    <a class="btn secondary" href="#contact">Get in touch</a>
+  </div>
+</div>
+
+<aside class="hero-card">
+  <div class="monogram">GM</div>
+
+  <h3>Developer focused on solving problems</h3>
+
+  <p>
+    Web development • PHP • Java • Selenium automation
+  </p>
+
+  <div class="quick">
+    <div>
+      <strong>84%</strong>
+      <small>MCA score · Completed</small>
+    </div>
+
+    <div>
+      <strong>83.28%</strong>
+      <small>BCA score</small>
+    </div>
+  </div>
+</aside>
+
+</div>
+
+<section id="about">
+<div class="wrap">
+
+<div class="section-head">
+  <div class="eyebrow">A little about me</div>
+  <h2>About</h2>
+</div>
+
+<div class="about-grid">
+
+<div class="about-copy">
+
+<p>
+I'm Ganesh M. I completed my Master of Computer Applications
+(MCA) at Jawaharlal Nehru New College of Engineering,
+Shivamogga, with a score of 84%. I completed my Bachelor of
+Computer Applications (BCA) with 83.28%.
+</p>
+
+<p>
+My interests include web application development, backend
+development and test automation. Through internships,
+academic work and hackathon projects, I've explored building
+applications that address real-world needs and strengthened
+my ability to learn new technologies.
+</p>
+
+<p>
+I'm interested in opportunities where I can contribute as a
+Full Stack Developer, PHP Developer or Web Developer while
+continuing to grow as an engineer.
+</p>
+
+</div>
+
+<div class="facts">
+
+<div class="fact">
+<span>Education</span>
+<strong>
+MCA — Completed, 84% · Jawaharlal Nehru New College
+of Engineering, Shivamogga
+</strong>
+</div>
+
+<div class="fact">
+<span>Undergraduate</span>
+<strong>BCA — 83.28%</strong>
+</div>
+
+<div class="fact">
+<span>Focus areas</span>
+<strong>Full-stack web development & automation</strong>
+</div>
+
+<div class="fact">
+<span>Based in</span>
+<strong>Shivamogga, Karnataka, India</strong>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<section id="skills">
+<div class="wrap">
+
+<div class="section-head">
+  <div class="eyebrow">What I work with</div>
+  <h2>Technical skills</h2>
+  <p>Technologies and tools I've worked with across learning,
+  internships and projects.</p>
+</div>
+
+<div class="skills">
+  <span class="chip">Java</span>
+  <span class="chip">PHP</span>
+  <span class="chip">HTML5</span>
+  <span class="chip">CSS3</span>
+  <span class="chip">JavaScript</span>
+  <span class="chip">React.js</span>
+  <span class="chip">Node.js</span>
+  <span class="chip">Flutter</span>
+  <span class="chip">SQL</span>
+  <span class="chip">MySQL</span>
+  <span class="chip">Selenium</span>
+  <span class="chip">API Testing</span>
+  <span class="chip">Debugging</span>
+</div>
+
+</div>
+</section>
+
+<section id="projects">
+<div class="wrap">
+
+<div class="section-head">
+  <div class="eyebrow">Selected work</div>
+  <h2>Projects</h2>
+  <p>A selection of academic, hackathon and development projects.</p>
+</div>
+
+<div class="cards">
+
+<article class="card">
+  <div class="card-top">
+    <span class="tag">Academic project</span>
+    <span>01</span>
+  </div>
+  <h3>TailorEase</h3>
+  <p>
+    A Flutter-based project focused on making tailoring-related
+    services and interactions easier through a mobile application.
+  </p>
+  <div class="tech">Flutter · Mobile application</div>
+</article>
+
+<article class="card">
+  <div class="card-top">
+    <span class="tag">Hackathon project</span>
+    <span>02</span>
+  </div>
+  <h3>Logistics Services</h3>
+  <p>
+    A vehicle-booking concept that matches transport requirements
+    with vehicle load capacity, with booking confirmation and
+    tracking features.
+  </p>
+  <div class="tech">Web application · Booking · Tracking</div>
+</article>
+
+<article class="card">
+  <div class="card-top">
+    <span class="tag">Hackathon project</span>
+    <span>03</span>
+  </div>
+  <h3>Brain Tumor Detection</h3>
+  <p>
+    A machine-learning project exploring brain-tumor detection
+    using medical images.
+  </p>
+  <div class="tech">Machine Learning · Medical imaging</div>
+</article>
+
+<article class="card">
+  <div class="card-top">
+    <span class="tag">Web development</span>
+    <span>04</span>
+  </div>
+  <h3>Insightful Ink</h3>
+  <p>
+    A blog platform developed using PHP and MySQL, with a focus
+    on publishing and managing web content.
+  </p>
+  <div class="tech">PHP · MySQL · HTML · CSS</div>
+</article>
+
+<article class="card">
+  <div class="card-top">
+    <span class="tag">Application development</span>
+    <span>05</span>
+  </div>
+  <h3>Student Management System</h3>
+  <p>
+    An application concept for organizing and managing
+    student-related information and records.
+  </p>
+  <div class="tech">Java / PHP · MySQL</div>
+</article>
+
+<article class="card">
+  <div class="card-top">
+    <span class="tag">Automation</span>
+    <span>06</span>
+  </div>
+  <h3>Selenium Automation Project</h3>
+  <p>
+    A browser-automation project using Java and Selenium to
+    practice automated web testing workflows.
+  </p>
+  <div class="tech">Java · Selenium</div>
+</article>
+
+</div>
+</div>
+</section>
+
+<section id="experience">
+<div class="wrap">
+
+<div class="section-head">
+  <div class="eyebrow">Learning through experience</div>
+  <h2>Internships</h2>
+</div>
+
+<div class="timeline">
+
+<div class="item">
+  <div class="date">Feb – Jun 2026</div>
+  <div>
+    <strong>QSpiders — Internship</strong>
+    <p>
+      Completed an internship focused on strengthening software
+      development and technical skills. Add the exact role,
+      technologies and responsibilities before publishing.
+    </p>
+  </div>
+</div>
+
+<div class="item">
+  <div class="date">Internship</div>
+  <div>
+    <strong>Inovant IT Solutions — PHP Developer Intern</strong>
+    <p>
+      Worked on developing a blog website using PHP and MySQL,
+      gaining practical experience in backend and
+      database-driven web development.
+    </p>
+  </div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="wrap">
+
+<div class="contact">
+
+<div class="eyebrow">Let's connect</div>
+
+<h2>Have a project or opportunity?</h2>
+
+<p>
+I'm open to connecting about web development, PHP development,
+full-stack opportunities and automation projects.
+Reach out through the links below.
+</p>
+
+<div class="contact-links">
+
+<a class="textlink"
+href="mailto:ganesh751m@gmail.com">
+Email ↗
+</a>
+
+<a class="textlink"
+href="https://www.linkedin.com/in/ganesh-m-97a128213"
+target="_blank" rel="noopener">
+LinkedIn ↗
+</a>
+
+<a class="textlink"
+href="https://github.com/ganesh2451"
+target="_blank" rel="noopener">
+GitHub ↗
+</a>
+
+</div>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="wrap">
+<span>
+© <span id="year"></span> Ganesh M. All rights reserved.
+</span>
+<span>Designed & built with care.</span>
+</footer>
+
+<script>
+document.getElementById('year').textContent =
+  new Date().getFullYear();
+</script>
+
+</body>
+</html>
